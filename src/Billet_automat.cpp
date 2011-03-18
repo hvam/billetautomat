@@ -1,13 +1,11 @@
-//============================================================================
-// Name        : Billet_automat.cpp
-// Author      : Viktor
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
+/*
+ * Name  : Billet_automat.cpp
+ * Author: Christina Heltoft, Klaus Møllnitz, Thomas ? & Viktor Pontoppidan
+ */
 
 #include <iostream>
 #include "Automat.h"
+
 using namespace std;
 
 int main() {

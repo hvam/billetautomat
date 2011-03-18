@@ -2,14 +2,13 @@
  * Automat.cpp
  *
  *  Created on: 17/03/2011
- *      Author: 68-901
+ *  Author: Christina Heltoft, Klaus M√∏llnitz, Thomas ? & Viktor Pontoppidan
  */
 
 #include "Automat.h"
 #include <iostream>
 
 Automat::Automat() {
-	// TODO Auto-generated constructor stub
 	x.fem  = 0;
 	x.ti   = 0;
 	x.tyve = 0;
@@ -25,7 +24,7 @@ Automat::Automat() {
 }
 
 Automat::~Automat() {
-	// TODO Auto-generated destructor stub
+
 }
 
 void Automat::addCoins(coinType c, int antal){
@@ -87,7 +86,20 @@ void Automat::print(){
 }
 
 void Automat::udRegn(int tilbage){
+    int antaltyvere = tilbage/20, antaltiere=0, antalfemmere=0;
 
+	// Beregn fordelingen af m√∏nter
+    if (tilbage%20 != 0){
+    	antaltiere = (tilbage-(antaltyvere*20))/10;
+    	if ((tilbage-(antaltyvere*20))%10 != 0){
+    		antalfemmere = (tilbage-(antaltyvere*20+antaltiere*10))/5;
+    	}
+    }
+
+    // Udskriv antallet af hver enkelt m√∏nttype
+    std::cout<<"Femmere: "<<antalfemmere<<"\n";
+    std::cout<<"Tiere:   "<<antaltiere<<"\n";
+    std::cout<<"Tyvere:  "<<antaltyvere<<"\n";
 }
 
 void Automat::buy(cardType k, seddelType s){
@@ -111,45 +123,48 @@ void Automat::buy(cardType k, seddelType s){
 	if (amount != 0){
 		std::cout<<"Du har betalt "<<amount<<" kr.\n";
 
+		switch(k){
+		case _2z:
+			amount-=140;
+			std::cout<<"Du har kÔøΩbt et 2 zoners kort.\n";
+			break;
+		case _3z:
+			amount-=180;
+			std::cout<<"Du har kÔøΩbt et 3 zoners kort.\n";
+			break;
+		case _4z:
+			amount-=230;
+			std::cout<<"Du har kÔøΩbt et 4 zoners kort.\n";
+			break;
+		case _5z:
+			amount-=285;
+			std::cout<<"Du har kÔøΩbt et 5 zoners kort.\n";
+			break;
+		case _6z:
+			amount-=335;
+			std::cout<<"Du har kÔøΩbt et 6 zoners kort.\n";
+			break;
+		case _7z:
+			amount-=390;
+			std::cout<<"Du har kÔøΩbt et 7 zoners kort.\n";
+			break;
+		case _8z:
+			amount-=435;
+			std::cout<<"Du har kÔøΩbt et 8 zoners kort.\n";
+			break;
+		case Az:
+			std::cout<<"Du har kÔøΩbt et allezoners kort.\n";
+			amount-=455;
+			break;
+		}
+
 		if(amount<0){
 			std::cout<<"Der er ikke penge nok";
 		} else {
-			switch(k){
-			case _2z:
-				std::cout<<"Du har k¯bt et 2 zoners kort.\n";
-				amount-=140;
-				break;
-			case _3z:
-				std::cout<<"Du har k¯bt et 3 zoners kort.\n";
-				amount-=180;
-				break;
-			case _4z:
-				std::cout<<"Du har k¯bt et 4 zoners kort.\n";
-				amount-=230;
-				break;
-			case _5z:
-				std::cout<<"Du har k¯bt et 5 zoners kort.\n";
-				amount-=285;
-				break;
-			case _6z:
-				std::cout<<"Du har k¯bt et 6 zoners kort.\n";
-				amount-=335;
-				break;
-			case _7z:
-				std::cout<<"Du har k¯bt et 7 zoners kort.\n";
-				amount-=390;
-				break;
-			case _8z:
-				std::cout<<"Du har k¯bt et 8 zoners kort.\n";
-				amount-=435;
-				break;
-			case Az:
-				std::cout<<"Du har k¯bt et allezoners kort.\n";
-				amount-=455;
-				break;
-			}
 			udRegn(amount);
 		}
+
+		// TODO: Remove 1 card from stack (1 card has been taken out of machine)
 	}
 }
 

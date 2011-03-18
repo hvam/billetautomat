@@ -2,7 +2,7 @@
  * Billet_automat.h
  *
  *  Created on: 17/03/2011
- *      Author: 68-901
+ *  Author: Christina Heltoft, Klaus Møllnitz, Thomas ? & Viktor Pontoppidan
  */
 
 #ifndef BILLET_AUTOMAT_H_
