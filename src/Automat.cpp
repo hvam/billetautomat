@@ -120,7 +120,7 @@ void Automat::buy(cardType k, seddelType s){
 		break;
 	}
 
-	if (amount != 0){
+	if (amount > 0){
 		std::cout<<"Du har betalt "<<amount<<" kr.\n";
 
 		switch(k){

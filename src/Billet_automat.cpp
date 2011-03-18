@@ -14,6 +14,6 @@ int main() {
 	a.addCoins(FEM, 10);
 	a.addCards(_3z, 3);
 	a.print();
-	a.buy(_2z, EN_HUND);
+	a.buy(_5z, FEM_HUND);
 	return 0;
 }
